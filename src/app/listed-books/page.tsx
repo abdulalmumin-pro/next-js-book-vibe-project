@@ -33,14 +33,23 @@ const ListedPage = () => {
           </div>
         </div>
 
+        {/* selected card */}
+
+        <div className="text-center pb-8">
+          <select defaultValue="Color scheme" className="select select-accent">
+            <option disabled={true}>Color scheme</option>
+            <option value={"rating"}>Rating</option>
+            <option value={"pages"}>Number of Pages</option>
+            <option value={"year"}>Publisher Year</option>
+          </select>
+        </div>
+
         {/* Stats */}
         <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-slate-500">
-                  Books Read
-                </p>
+                <p className="text-sm font-medium text-slate-500">Books Read</p>
                 <p className="mt-1 text-3xl font-black text-slate-900">
                   {readBook.length}
                 </p>
@@ -55,9 +64,7 @@ const ListedPage = () => {
           <div className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-slate-500">
-                  Wishlist
-                </p>
+                <p className="text-sm font-medium text-slate-500">Wishlist</p>
                 <p className="mt-1 text-3xl font-black text-slate-900">
                   {wishList.length}
                 </p>
@@ -153,16 +160,3 @@ const EmptyState = ({
 };
 
 export default ListedPage;
-
-
-
-
-
-
-
-
-
-
-
-
-

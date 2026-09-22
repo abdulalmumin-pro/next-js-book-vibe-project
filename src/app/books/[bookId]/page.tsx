@@ -9,25 +9,37 @@ interface ParamsType {
 }
 
 const getBooks = async () => {
-  const response = await fetch("http://localhost:3000/booksData.json");
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
+    );
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error("Error fetching book data:", error);
+    return [];
+  }
 };
 
 const BookId = async ({ params }: ParamsType) => {
   const { bookId } = await params;
-//   console.log(bookId);
 
   const booksData = await getBooks();
-  const bookDetails = booksData.find((book: Ibook) => String(book.bookId) === String(bookId))
+
+  const bookDetails = booksData.find(
+    (book: Ibook) => String(book.bookId) === String(bookId)
+  );
+
   console.log(bookDetails);
 
   return (
-    <DetailsBook key={bookDetails.bookId} bookDetails={bookDetails}></DetailsBook>
+    <DetailsBook
+      key={bookDetails.bookId}
+      bookDetails={bookDetails}
+    />
   );
 };
 
 export default BookId;
-
-
-
