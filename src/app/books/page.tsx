@@ -1,7 +1,7 @@
 
 import React from "react";
-import BookCard from "./BookCard";
 import { Ibook } from "@/types/bookType";
+import BookCard from "../components/homePage/BookCard";
 
 
 const getBooks = async () => {
@@ -32,8 +32,8 @@ const Books = async () => {
       </div>
 
       {/* Books Grid */}
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-        {booksData.slice(1, 10).map((book: Ibook, ind:number) => {
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {booksData.map((book: Ibook, ind:number) => {
           return <BookCard key={ind} book={book}></BookCard>;
         })}
       </div>

@@ -4,9 +4,11 @@ import React from "react";
 const Navbar = () => {
   const links = (
     <>
-      
       <li>
-        <Link href="/">Books</Link>
+        <Link href="/">Home</Link>
+      </li>
+      <li>
+        <Link href="/books">Books</Link>
       </li>
 
       <li>
@@ -44,23 +46,7 @@ const Navbar = () => {
             tabIndex={-1}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+            {links}
           </ul>
         </div>
         <Link href="/" className="btn btn-ghost text-xl font-bold">

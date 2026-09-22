@@ -1,16 +1,15 @@
 import { Ibook } from "@/types/bookType";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 interface IbookCard {
-    book: Ibook
+  book: Ibook;
 }
 
-const BookCard = ( {book}: IbookCard ) => {
+const BookCard = ({ book }: IbookCard) => {
   return (
-    <div
-      className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-100"
-    >
+    <div className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-100">
       {/* Image */}
       <div className="relative h-72 overflow-hidden bg-gray-100">
         <Image
@@ -89,9 +88,11 @@ const BookCard = ( {book}: IbookCard ) => {
         </div>
 
         {/* Button */}
-        <button className="btn mt-6 w-full rounded-xl border-0 bg-emerald-600 text-white shadow-md shadow-emerald-100 transition-all duration-300 hover:bg-emerald-700 hover:shadow-lg">
-          View Details
-        </button>
+        <Link href={`/books/${book.bookId}`}>
+          <button className="btn mt-6 w-full rounded-xl border-0 bg-emerald-600 text-white shadow-md shadow-emerald-100 transition-all duration-300 hover:bg-emerald-700 hover:shadow-lg">
+            View Details
+          </button>
+        </Link>
       </div>
     </div>
   );
